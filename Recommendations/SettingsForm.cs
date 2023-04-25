@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Recommendations
 {
-    public partial class ForMeForm : Form
+    public partial class SettingsForm : Form
     {
-        public ForMeForm()
+        public SettingsForm()
         {
             InitializeComponent();
         }

@@ -25,8 +25,14 @@ namespace Recommendations
         private void forMeButton_Click(object sender, EventArgs e)
         {
             this.Hide();
-            ForMeForm forMe = new ForMeForm();
-            forMe.Show();
+            
+        }
+
+        private void recSettingsButton_Click(object sender, EventArgs e)
+        {
+            
+            SettingsForm settings = new SettingsForm();
+            settings.Show();
         }
     }
 }

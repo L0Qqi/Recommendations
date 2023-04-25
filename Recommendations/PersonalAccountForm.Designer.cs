@@ -29,14 +29,15 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.nameLabel = new System.Windows.Forms.Label();
-            this.adressLabel = new System.Windows.Forms.Label();
-            this.forMeButton = new System.Windows.Forms.Button();
-            this.basketButton = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.nameShowLabel = new System.Windows.Forms.Label();
             this.adressShowLabel = new System.Windows.Forms.Label();
+            this.nameShowLabel = new System.Windows.Forms.Label();
+            this.adressLabel = new System.Windows.Forms.Label();
+            this.nameLabel = new System.Windows.Forms.Label();
+            this.recSettingsButton = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.cCloseLabel = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -45,12 +46,12 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(144)))), ((int)(((byte)(126)))));
+            this.panel1.Controls.Add(this.button3);
+            this.panel1.Controls.Add(this.button2);
+            this.panel1.Controls.Add(this.button4);
+            this.panel1.Controls.Add(this.recSettingsButton);
             this.panel1.Controls.Add(this.adressShowLabel);
             this.panel1.Controls.Add(this.nameShowLabel);
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.basketButton);
-            this.panel1.Controls.Add(this.forMeButton);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.adressLabel);
             this.panel1.Controls.Add(this.nameLabel);
@@ -59,15 +60,23 @@
             this.panel1.Size = new System.Drawing.Size(421, 307);
             this.panel1.TabIndex = 0;
             // 
-            // nameLabel
+            // adressShowLabel
             // 
-            this.nameLabel.AutoSize = true;
-            this.nameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.nameLabel.Location = new System.Drawing.Point(159, 34);
-            this.nameLabel.Name = "nameLabel";
-            this.nameLabel.Size = new System.Drawing.Size(44, 20);
-            this.nameLabel.TabIndex = 0;
-            this.nameLabel.Text = "Имя:";
+            this.adressShowLabel.AutoSize = true;
+            this.adressShowLabel.Location = new System.Drawing.Point(302, 82);
+            this.adressShowLabel.Name = "adressShowLabel";
+            this.adressShowLabel.Size = new System.Drawing.Size(91, 13);
+            this.adressShowLabel.TabIndex = 8;
+            this.adressShowLabel.Text = "adressShowLabel";
+            // 
+            // nameShowLabel
+            // 
+            this.nameShowLabel.AutoSize = true;
+            this.nameShowLabel.Location = new System.Drawing.Point(210, 39);
+            this.nameShowLabel.Name = "nameShowLabel";
+            this.nameShowLabel.Size = new System.Drawing.Size(86, 13);
+            this.nameShowLabel.TabIndex = 7;
+            this.nameShowLabel.Text = "nameShowLabel";
             // 
             // adressLabel
             // 
@@ -79,70 +88,71 @@
             this.adressLabel.TabIndex = 1;
             this.adressLabel.Text = "Адрес доставки:";
             // 
-            // forMeButton
+            // nameLabel
             // 
-            this.forMeButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(93)))), ((int)(((byte)(80)))));
-            this.forMeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.forMeButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(222)))), ((int)(((byte)(186)))));
-            this.forMeButton.Location = new System.Drawing.Point(15, 172);
-            this.forMeButton.Name = "forMeButton";
-            this.forMeButton.Size = new System.Drawing.Size(158, 33);
-            this.forMeButton.TabIndex = 3;
-            this.forMeButton.Text = "Предложения для меня";
-            this.forMeButton.UseVisualStyleBackColor = false;
-            this.forMeButton.Click += new System.EventHandler(this.forMeButton_Click);
+            this.nameLabel.AutoSize = true;
+            this.nameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.nameLabel.Location = new System.Drawing.Point(159, 34);
+            this.nameLabel.Name = "nameLabel";
+            this.nameLabel.Size = new System.Drawing.Size(44, 20);
+            this.nameLabel.TabIndex = 0;
+            this.nameLabel.Text = "Имя:";
             // 
-            // basketButton
+            // recSettingsButton
             // 
-            this.basketButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(93)))), ((int)(((byte)(80)))));
-            this.basketButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(222)))), ((int)(((byte)(186)))));
-            this.basketButton.Location = new System.Drawing.Point(15, 233);
-            this.basketButton.Name = "basketButton";
-            this.basketButton.Size = new System.Drawing.Size(158, 33);
-            this.basketButton.TabIndex = 4;
-            this.basketButton.Text = "Корзина";
-            this.basketButton.UseVisualStyleBackColor = false;
+            this.recSettingsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(93)))), ((int)(((byte)(80)))));
+            this.recSettingsButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(222)))), ((int)(((byte)(186)))));
+            this.recSettingsButton.Location = new System.Drawing.Point(15, 160);
+            this.recSettingsButton.Name = "recSettingsButton";
+            this.recSettingsButton.Size = new System.Drawing.Size(158, 43);
+            this.recSettingsButton.TabIndex = 10;
+            this.recSettingsButton.Text = "Настройки списка рекомендаций";
+            this.recSettingsButton.UseVisualStyleBackColor = false;
+            this.recSettingsButton.Click += new System.EventHandler(this.recSettingsButton_Click);
             // 
-            // button1
+            // button4
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(93)))), ((int)(((byte)(80)))));
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(222)))), ((int)(((byte)(186)))));
-            this.button1.Location = new System.Drawing.Point(235, 173);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(158, 33);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Заказы";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(93)))), ((int)(((byte)(80)))));
+            this.button4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(222)))), ((int)(((byte)(186)))));
+            this.button4.Location = new System.Drawing.Point(235, 160);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(158, 43);
+            this.button4.TabIndex = 11;
+            this.button4.Text = "Избранные";
+            this.button4.UseVisualStyleBackColor = false;
             // 
             // button2
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(196)))), ((int)(((byte)(170)))));
-            this.button2.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(93)))), ((int)(((byte)(80)))));
+            this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(222)))), ((int)(((byte)(186)))));
             this.button2.Location = new System.Drawing.Point(235, 233);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(158, 33);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "Вернуться";
+            this.button2.Size = new System.Drawing.Size(158, 43);
+            this.button2.TabIndex = 12;
+            this.button2.Text = "Список рекомендаций";
             this.button2.UseVisualStyleBackColor = false;
             // 
-            // nameShowLabel
+            // button3
             // 
-            this.nameShowLabel.AutoSize = true;
-            this.nameShowLabel.Location = new System.Drawing.Point(210, 39);
-            this.nameShowLabel.Name = "nameShowLabel";
-            this.nameShowLabel.Size = new System.Drawing.Size(86, 13);
-            this.nameShowLabel.TabIndex = 7;
-            this.nameShowLabel.Text = "nameShowLabel";
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(93)))), ((int)(((byte)(80)))));
+            this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(222)))), ((int)(((byte)(186)))));
+            this.button3.Location = new System.Drawing.Point(15, 233);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(158, 43);
+            this.button3.TabIndex = 13;
+            this.button3.Text = "Категории";
+            this.button3.UseVisualStyleBackColor = false;
             // 
-            // adressShowLabel
+            // cCloseLabel
             // 
-            this.adressShowLabel.AutoSize = true;
-            this.adressShowLabel.Location = new System.Drawing.Point(302, 82);
-            this.adressShowLabel.Name = "adressShowLabel";
-            this.adressShowLabel.Size = new System.Drawing.Size(91, 13);
-            this.adressShowLabel.TabIndex = 8;
-            this.adressShowLabel.Text = "adressShowLabel";
+            this.cCloseLabel.AutoSize = true;
+            this.cCloseLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.cCloseLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(236)))), ((int)(((byte)(236)))));
+            this.cCloseLabel.Location = new System.Drawing.Point(444, 3);
+            this.cCloseLabel.Name = "cCloseLabel";
+            this.cCloseLabel.Size = new System.Drawing.Size(15, 16);
+            this.cCloseLabel.TabIndex = 12;
+            this.cCloseLabel.Text = "X";
             // 
             // pictureBox1
             // 
@@ -161,6 +171,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(93)))), ((int)(((byte)(80)))));
             this.ClientSize = new System.Drawing.Size(461, 347);
+            this.Controls.Add(this.cCloseLabel);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "PersonalAccountForm";
@@ -169,6 +180,7 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -178,11 +190,12 @@
         private System.Windows.Forms.Label nameLabel;
         private System.Windows.Forms.Label adressShowLabel;
         private System.Windows.Forms.Label nameShowLabel;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button basketButton;
-        private System.Windows.Forms.Button forMeButton;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label adressLabel;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button recSettingsButton;
+        private System.Windows.Forms.Label cCloseLabel;
     }
 }

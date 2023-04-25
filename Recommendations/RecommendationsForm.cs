@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Recommendations
 {
-    public partial class MenuForm : Form
+    public partial class RecommendationsForm : Form
     {
-        public MenuForm()
+        public RecommendationsForm()
         {
             InitializeComponent();
         }
@@ -37,9 +37,23 @@ namespace Recommendations
 
         private void mOrdLabel_Click(object sender, EventArgs e)
         {
+            
+            
+            
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
             this.Hide();
-            MyOrdersForm myOrders = new MyOrdersForm();
-            myOrders.Show();
+            FavouritesForm favourites = new FavouritesForm();
+            favourites.Show();
+        }
+
+        private void toCategorLabel_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            CategoriesForm categories = new CategoriesForm();
+            categories.Show();
         }
     }
 }

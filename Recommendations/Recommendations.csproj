@@ -52,29 +52,35 @@
     <Compile Include="AutorizationForm.Designer.cs">
       <DependentUpon>AutorizationForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="FeedbackForm.cs">
+    <Compile Include="CategoriesForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FeedbackForm.Designer.cs">
-      <DependentUpon>FeedbackForm.cs</DependentUpon>
+    <Compile Include="CategoriesForm.Designer.cs">
+      <DependentUpon>CategoriesForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ForMeForm.cs">
+    <Compile Include="FavEditForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ForMeForm.Designer.cs">
-      <DependentUpon>ForMeForm.cs</DependentUpon>
+    <Compile Include="FavEditForm.Designer.cs">
+      <DependentUpon>FavEditForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MenuForm.cs">
+    <Compile Include="FavouritesForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MenuForm.Designer.cs">
-      <DependentUpon>MenuForm.cs</DependentUpon>
+    <Compile Include="FavouritesForm.Designer.cs">
+      <DependentUpon>FavouritesForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MyOrdersForm.cs">
+    <Compile Include="RecEditForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MyOrdersForm.Designer.cs">
-      <DependentUpon>MyOrdersForm.cs</DependentUpon>
+    <Compile Include="RecEditForm.Designer.cs">
+      <DependentUpon>RecEditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RecommendationsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecommendationsForm.Designer.cs">
+      <DependentUpon>RecommendationsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="PersonalAccountForm.cs">
       <SubType>Form</SubType>
@@ -90,20 +96,29 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SettingsForm.Designer.cs">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AutorizationForm.resx">
       <DependentUpon>AutorizationForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FeedbackForm.resx">
-      <DependentUpon>FeedbackForm.cs</DependentUpon>
+    <EmbeddedResource Include="CategoriesForm.resx">
+      <DependentUpon>CategoriesForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ForMeForm.resx">
-      <DependentUpon>ForMeForm.cs</DependentUpon>
+    <EmbeddedResource Include="FavEditForm.resx">
+      <DependentUpon>FavEditForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MenuForm.resx">
-      <DependentUpon>MenuForm.cs</DependentUpon>
+    <EmbeddedResource Include="FavouritesForm.resx">
+      <DependentUpon>FavouritesForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MyOrdersForm.resx">
-      <DependentUpon>MyOrdersForm.cs</DependentUpon>
+    <EmbeddedResource Include="RecEditForm.resx">
+      <DependentUpon>RecEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecommendationsForm.resx">
+      <DependentUpon>RecommendationsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PersonalAccountForm.resx">
       <DependentUpon>PersonalAccountForm.cs</DependentUpon>
@@ -120,6 +135,9 @@
     </Compile>
     <EmbeddedResource Include="RegistrationForm.resx">
       <DependentUpon>RegistrationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SettingsForm.resx">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -145,6 +163,7 @@
     <Content Include="Picturies\phone proj.png" />
     <Content Include="Picturies\tv proj.png" />
     <Content Include="Picturies\user proj.png" />
+    <Content Include="Picturies\users proj.png" />
     <Content Include="Picturies\washing m proj.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

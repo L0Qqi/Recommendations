@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace Recommendations
 {
-    public partial class MyOrdersForm : Form
+    public partial class RecEditForm : Form
     {
-        public MyOrdersForm()
+        public RecEditForm()
         {
             InitializeComponent();
+        }
+
+        private void cCloseLabel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

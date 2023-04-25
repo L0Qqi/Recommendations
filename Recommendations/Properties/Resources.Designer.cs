@@ -163,6 +163,16 @@ namespace Recommendations.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap users_proj {
+            get {
+                object obj = ResourceManager.GetObject("users proj", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap washing_m_proj {
             get {
                 object obj = ResourceManager.GetObject("washing m proj", resourceCulture);
