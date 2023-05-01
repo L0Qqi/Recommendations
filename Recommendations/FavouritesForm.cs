@@ -16,5 +16,12 @@ namespace Recommendations
         {
             InitializeComponent();
         }
+
+        private void fromFavReturnLabel_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            RecommendationsForm recommendations = new RecommendationsForm();
+            recommendations.Show();
+        }
     }
 }
