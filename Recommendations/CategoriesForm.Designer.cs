@@ -41,7 +41,9 @@
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton5 = new System.Windows.Forms.RadioButton();
             this.radioButton4 = new System.Windows.Forms.RadioButton();
+            this.fromCatReturnLabel = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -84,6 +86,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(93)))), ((int)(((byte)(80)))));
+            this.panel2.Controls.Add(this.fromCatReturnLabel);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel2.Location = new System.Drawing.Point(0, 394);
             this.panel2.Name = "panel2";
@@ -199,6 +202,18 @@
             this.radioButton4.Text = "Красота и здоровье";
             this.radioButton4.UseVisualStyleBackColor = true;
             // 
+            // fromCatReturnLabel
+            // 
+            this.fromCatReturnLabel.AutoSize = true;
+            this.fromCatReturnLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.fromCatReturnLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(236)))), ((int)(((byte)(236)))));
+            this.fromCatReturnLabel.Location = new System.Drawing.Point(12, 13);
+            this.fromCatReturnLabel.Name = "fromCatReturnLabel";
+            this.fromCatReturnLabel.Size = new System.Drawing.Size(82, 16);
+            this.fromCatReturnLabel.TabIndex = 14;
+            this.fromCatReturnLabel.Text = "<вернуться";
+            this.fromCatReturnLabel.Click += new System.EventHandler(this.fromCatReturnLabel_Click);
+            // 
             // CategoriesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -213,6 +228,8 @@
             this.Text = "CategoriesForm";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
             this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
@@ -236,5 +253,6 @@
         private System.Windows.Forms.RadioButton radioButton5;
         private System.Windows.Forms.RadioButton radioButton4;
         private System.Windows.Forms.Label cCloseLabel;
+        private System.Windows.Forms.Label fromCatReturnLabel;
     }
 }

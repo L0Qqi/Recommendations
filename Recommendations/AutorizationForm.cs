@@ -7,11 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Configuration;
+using System.Data.SqlClient;
 
 namespace Recommendations
 {
     public partial class AutorizationForm : Form
     {
+        private SqlConnection sqlConnection = null;
         public AutorizationForm()
         {
             InitializeComponent();
@@ -41,9 +44,28 @@ namespace Recommendations
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            RecommendationsForm recommendations = new RecommendationsForm();
-            recommendations.Show();
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            DataTable table = new DataTable();
+
+            SqlCommand command = new SqlCommand("SELECT * FROM `Users` WHERE `Login` = @userL AND `Password`= @userP",
+                sqlConnection);
+
+            command.Parameters.AddWithValue("@userL", loginTB.Text);
+            command.Parameters.AddWithValue("@userP", loginTB.Text);
+
+            adapter.SelectCommand = command;
+            //adapter.Fill(table); ошибка
+
+            if (table.Rows.Count > 0)
+            {
+                this.Hide();
+                RecommendationsForm recommendations = new RecommendationsForm();
+                recommendations.Show();
+            }
+            else
+            {
+                MessageBox.Show("Учетная запись не найдена ");
+            }
         }
 
         private void loginTB_Enter(object sender, EventArgs e)
@@ -86,6 +108,14 @@ namespace Recommendations
         private void cCloseLabel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void AutorizationForm_Load(object sender, EventArgs e)
+        {
+            sqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["Users"].ConnectionString);
+            sqlConnection.Open();
+
+            
         }
     }
 }

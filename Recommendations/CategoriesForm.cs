@@ -21,5 +21,12 @@ namespace Recommendations
         {
 
         }
+
+        private void fromCatReturnLabel_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            RecommendationsForm recommendations = new RecommendationsForm();
+            recommendations.Show();
+        }
     }
 }

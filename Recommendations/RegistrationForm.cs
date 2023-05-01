@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -13,6 +15,7 @@ namespace Recommendations
 {
     public partial class RegistrationForm : Form
     {
+        private SqlConnection sqlConnection = null;
         public RegistrationForm()
         {
             InitializeComponent();
@@ -140,6 +143,58 @@ namespace Recommendations
             this.Hide();
             AutorizationForm autorization = new AutorizationForm();
             autorization.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (nameTB.Text == "")
+            {
+                MessageBox.Show("Введите имя");
+                return;
+            }
+            if (telephoneTB.Text == "")
+            {
+                MessageBox.Show("Введите номер телефона");
+                return;
+            }
+            if (bdDateTB.Text == "")
+            {
+                MessageBox.Show("Введите дату рождения в формате MM.DD.YYYY");
+                return;
+            }
+            if (loginRegTB.Text == "")
+            {
+                MessageBox.Show("Введите логин");
+                return;
+            }
+            if (passwordRegTB.Text == "")
+            {
+                MessageBox.Show("Введите пароль");
+                return;
+            }
+            SqlCommand command = new SqlCommand("INSERT INTO [Users] (Name, Phone, Birthday, Login, Password) VALUES (@Name, @Phone, @Birthday, @Login, @Password)", 
+                sqlConnection);
+
+            //DateTime date = DateTime.Parse(bdDateTB.Text); {date.Month}/{date.Day}/{date.Year}
+
+            command.Parameters.AddWithValue("Name", nameTB.Text);
+            command.Parameters.AddWithValue("Phone", telephoneTB.Text);
+            command.Parameters.AddWithValue("Birthday", bdDateTB.Text);
+            command.Parameters.AddWithValue("Login", loginRegTB.Text);
+            command.Parameters.AddWithValue("Password", passwordRegTB.Text);
+
+
+            command.ExecuteNonQuery().ToString();
+
+            this.Hide();
+            AutorizationForm autorization = new AutorizationForm();
+            autorization.Show();
+        }
+
+        private void RegistrationForm_Load(object sender, EventArgs e)
+        {
+            sqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["Users"].ConnectionString);
+            sqlConnection.Open();
         }
     }
 }
