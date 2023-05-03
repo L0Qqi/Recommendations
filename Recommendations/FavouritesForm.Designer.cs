@@ -29,13 +29,15 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cCloseLabel = new System.Windows.Forms.Label();
             this.autorizationLabel = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.cCloseLabel = new System.Windows.Forms.Label();
             this.fromFavReturnLabel = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.favDataGV = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.favDataGV)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -48,6 +50,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(638, 65);
             this.panel1.TabIndex = 0;
+            // 
+            // cCloseLabel
+            // 
+            this.cCloseLabel.AutoSize = true;
+            this.cCloseLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.cCloseLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(236)))), ((int)(((byte)(236)))));
+            this.cCloseLabel.Location = new System.Drawing.Point(615, 9);
+            this.cCloseLabel.Name = "cCloseLabel";
+            this.cCloseLabel.Size = new System.Drawing.Size(20, 20);
+            this.cCloseLabel.TabIndex = 11;
+            this.cCloseLabel.Text = "X";
             // 
             // autorizationLabel
             // 
@@ -71,28 +84,6 @@
             this.panel2.Size = new System.Drawing.Size(638, 47);
             this.panel2.TabIndex = 1;
             // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(196)))), ((int)(((byte)(170)))));
-            this.button2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button2.Location = new System.Drawing.Point(495, 10);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(131, 28);
-            this.button2.TabIndex = 8;
-            this.button2.Text = "Редактировать";
-            this.button2.UseVisualStyleBackColor = false;
-            // 
-            // cCloseLabel
-            // 
-            this.cCloseLabel.AutoSize = true;
-            this.cCloseLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.cCloseLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(236)))), ((int)(((byte)(236)))));
-            this.cCloseLabel.Location = new System.Drawing.Point(615, 9);
-            this.cCloseLabel.Name = "cCloseLabel";
-            this.cCloseLabel.Size = new System.Drawing.Size(20, 20);
-            this.cCloseLabel.TabIndex = 11;
-            this.cCloseLabel.Text = "X";
-            // 
             // fromFavReturnLabel
             // 
             this.fromFavReturnLabel.AutoSize = true;
@@ -105,21 +96,47 @@
             this.fromFavReturnLabel.Text = "<вернуться";
             this.fromFavReturnLabel.Click += new System.EventHandler(this.fromFavReturnLabel_Click);
             // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(196)))), ((int)(((byte)(170)))));
+            this.button2.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button2.Location = new System.Drawing.Point(495, 10);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(131, 28);
+            this.button2.TabIndex = 8;
+            this.button2.Text = "Редактировать";
+            this.button2.UseVisualStyleBackColor = false;
+            // 
+            // favDataGV
+            // 
+            this.favDataGV.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(144)))), ((int)(((byte)(126)))));
+            this.favDataGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.favDataGV.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.favDataGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(144)))), ((int)(((byte)(126)))));
+            this.favDataGV.Location = new System.Drawing.Point(0, 65);
+            this.favDataGV.Name = "favDataGV";
+            this.favDataGV.Size = new System.Drawing.Size(638, 320);
+            this.favDataGV.TabIndex = 2;
+            this.favDataGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
             // FavouritesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(144)))), ((int)(((byte)(126)))));
             this.ClientSize = new System.Drawing.Size(638, 432);
+            this.Controls.Add(this.favDataGV);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FavouritesForm";
             this.Text = "FavouritesForm";
+            this.Load += new System.EventHandler(this.FavouritesForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.favDataGV)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -132,5 +149,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label cCloseLabel;
         private System.Windows.Forms.Label fromFavReturnLabel;
+        private System.Windows.Forms.DataGridView favDataGV;
     }
 }
