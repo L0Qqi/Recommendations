@@ -117,6 +117,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(475, 81);
             this.panel1.TabIndex = 6;
+            
             // 
             // cCloseLabel
             // 
@@ -157,6 +158,8 @@
             this.Name = "AutorizationForm";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.AutorizationForm_Load);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.AutorizationForm_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.AutorizationForm_MouseMove);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

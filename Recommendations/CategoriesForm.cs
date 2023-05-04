@@ -15,6 +15,7 @@ namespace Recommendations
     public partial class CategoriesForm : Form
     {
         private SqlConnection sqlConnection = null;
+        private string Login;
         public CategoriesForm()
         {
             InitializeComponent();
@@ -28,7 +29,7 @@ namespace Recommendations
         private void fromCatReturnLabel_Click(object sender, EventArgs e)
         {
             this.Hide();
-            RecommendationsForm recommendations = new RecommendationsForm();
+            RecommendationsForm recommendations = new RecommendationsForm(Login);
             recommendations.Show();
         }
 
@@ -88,6 +89,25 @@ namespace Recommendations
             (catDataGV.DataSource as DataTable).DefaultView.RowFilter = $"Category_Id = 8";
         }
 
+        private void allRB_CheckedChanged(object sender, EventArgs e)
+        {
+            SqlDataAdapter dataAdapter = new SqlDataAdapter(
+                "SELECT * FROM Products", sqlConnection);
+            DataSet dataSet = new DataSet();
+            dataAdapter.Fill(dataSet);
+            catDataGV.DataSource = dataSet.Tables[0];
+        }
+        Point lastPoint;
        
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            lastPoint = new Point(e.X, e.Y);
+        }
+
+        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            this.Left += e.X - lastPoint.X;
+            this.Top += e.Y - lastPoint.Y;
+        }
     }
 }

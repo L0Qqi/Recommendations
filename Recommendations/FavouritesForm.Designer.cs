@@ -61,6 +61,7 @@
             this.cCloseLabel.Size = new System.Drawing.Size(20, 20);
             this.cCloseLabel.TabIndex = 11;
             this.cCloseLabel.Text = "X";
+            this.cCloseLabel.Click += new System.EventHandler(this.cCloseLabel_Click);
             // 
             // autorizationLabel
             // 
@@ -117,7 +118,6 @@
             this.favDataGV.Name = "favDataGV";
             this.favDataGV.Size = new System.Drawing.Size(638, 320);
             this.favDataGV.TabIndex = 2;
-            this.favDataGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // FavouritesForm
             // 

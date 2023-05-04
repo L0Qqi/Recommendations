@@ -34,6 +34,8 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.fromCatReturnLabel = new System.Windows.Forms.Label();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.catDataGV = new System.Windows.Forms.DataGridView();
+            this.allRB = new System.Windows.Forms.RadioButton();
             this.gameRB = new System.Windows.Forms.RadioButton();
             this.tVRB = new System.Windows.Forms.RadioButton();
             this.kidRB = new System.Windows.Forms.RadioButton();
@@ -42,7 +44,6 @@
             this.houseRB = new System.Windows.Forms.RadioButton();
             this.kitchenRB = new System.Windows.Forms.RadioButton();
             this.beautiRB = new System.Windows.Forms.RadioButton();
-            this.catDataGV = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -63,6 +64,8 @@
             this.panel1.Size = new System.Drawing.Size(638, 61);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
+            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
             // 
             // cCloseLabel
             // 
@@ -122,6 +125,7 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.allRB);
             this.splitContainer1.Panel2.Controls.Add(this.gameRB);
             this.splitContainer1.Panel2.Controls.Add(this.tVRB);
             this.splitContainer1.Panel2.Controls.Add(this.kidRB);
@@ -133,6 +137,29 @@
             this.splitContainer1.Size = new System.Drawing.Size(638, 333);
             this.splitContainer1.SplitterDistance = 421;
             this.splitContainer1.TabIndex = 2;
+            // 
+            // catDataGV
+            // 
+            this.catDataGV.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(144)))), ((int)(((byte)(126)))));
+            this.catDataGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.catDataGV.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.catDataGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(144)))), ((int)(((byte)(126)))));
+            this.catDataGV.Location = new System.Drawing.Point(0, 0);
+            this.catDataGV.Name = "catDataGV";
+            this.catDataGV.Size = new System.Drawing.Size(419, 331);
+            this.catDataGV.TabIndex = 0;
+            // 
+            // allRB
+            // 
+            this.allRB.AutoSize = true;
+            this.allRB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.allRB.Location = new System.Drawing.Point(8, 234);
+            this.allRB.Name = "allRB";
+            this.allRB.Size = new System.Drawing.Size(49, 20);
+            this.allRB.TabIndex = 9;
+            this.allRB.Text = "Все";
+            this.allRB.UseVisualStyleBackColor = true;
+            this.allRB.CheckedChanged += new System.EventHandler(this.allRB_CheckedChanged);
             // 
             // gameRB
             // 
@@ -230,18 +257,6 @@
             this.beautiRB.UseVisualStyleBackColor = true;
             this.beautiRB.CheckedChanged += new System.EventHandler(this.beautiRB_CheckedChanged);
             // 
-            // catDataGV
-            // 
-            this.catDataGV.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(144)))), ((int)(((byte)(126)))));
-            this.catDataGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.catDataGV.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.catDataGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(144)))), ((int)(((byte)(126)))));
-            this.catDataGV.Location = new System.Drawing.Point(0, 0);
-            this.catDataGV.Name = "catDataGV";
-            this.catDataGV.Size = new System.Drawing.Size(419, 331);
-            this.catDataGV.TabIndex = 0;
-            
-            // 
             // CategoriesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -255,6 +270,7 @@
             this.Name = "CategoriesForm";
             this.Text = "CategoriesForm";
             this.Load += new System.EventHandler(this.CategoriesForm_Load);
+            
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -286,5 +302,6 @@
         private System.Windows.Forms.Label cCloseLabel;
         private System.Windows.Forms.Label fromCatReturnLabel;
         private System.Windows.Forms.DataGridView catDataGV;
+        private System.Windows.Forms.RadioButton allRB;
     }
 }

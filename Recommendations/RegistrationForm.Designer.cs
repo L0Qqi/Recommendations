@@ -156,6 +156,8 @@
             this.Name = "RegistrationForm";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.RegistrationForm_Load);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.RegistrationForm_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.RegistrationForm_MouseMove);
             this.ResumeLayout(false);
             this.PerformLayout();
 

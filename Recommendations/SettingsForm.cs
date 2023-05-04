@@ -16,5 +16,10 @@ namespace Recommendations
         {
             InitializeComponent();
         }
+
+        private void cCloseLabel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

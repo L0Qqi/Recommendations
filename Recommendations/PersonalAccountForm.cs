@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,9 +14,12 @@ namespace Recommendations
 {
     public partial class PersonalAccountForm : Form
     {
-        public PersonalAccountForm()
+        private SqlConnection sqlConnection = null;
+        private string Login;
+        public PersonalAccountForm(string login)
         {
             InitializeComponent();
+            Login = login;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -45,7 +50,7 @@ namespace Recommendations
         private void toRecButton_Click(object sender, EventArgs e)
         {
             this.Hide();
-            RecommendationsForm rec = new RecommendationsForm();
+            RecommendationsForm rec = new RecommendationsForm(Login);
             rec.Show();
         }
 
@@ -55,5 +60,30 @@ namespace Recommendations
             FavouritesForm favourites = new FavouritesForm();
             favourites.Show();
         }
+
+        private void PersonalAccountForm_Load(object sender, EventArgs e)
+        {
+            
+            sqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["Users"].ConnectionString);
+            sqlConnection.Open();
+            SqlCommand command = new SqlCommand($"SELECT Name from Users WHERE Login = '{Login}'", sqlConnection);
+            SqlDataReader reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                nameShowLabel.Text = reader["Name"].ToString();
+                
+
+            }
+            reader.Close();
+            sqlConnection.Close();
+
+        }
+
+        private void cCloseLabel_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
+    
 }

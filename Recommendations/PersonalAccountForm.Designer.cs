@@ -33,10 +33,8 @@
             this.toRecButton = new System.Windows.Forms.Button();
             this.toFavButton = new System.Windows.Forms.Button();
             this.recSettingsButton = new System.Windows.Forms.Button();
-            this.adressShowLabel = new System.Windows.Forms.Label();
             this.nameShowLabel = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.adressLabel = new System.Windows.Forms.Label();
             this.nameLabel = new System.Windows.Forms.Label();
             this.cCloseLabel = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
@@ -50,10 +48,8 @@
             this.panel1.Controls.Add(this.toRecButton);
             this.panel1.Controls.Add(this.toFavButton);
             this.panel1.Controls.Add(this.recSettingsButton);
-            this.panel1.Controls.Add(this.adressShowLabel);
             this.panel1.Controls.Add(this.nameShowLabel);
             this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Controls.Add(this.adressLabel);
             this.panel1.Controls.Add(this.nameLabel);
             this.panel1.Location = new System.Drawing.Point(23, 22);
             this.panel1.Name = "panel1";
@@ -108,21 +104,13 @@
             this.recSettingsButton.UseVisualStyleBackColor = false;
             this.recSettingsButton.Click += new System.EventHandler(this.recSettingsButton_Click);
             // 
-            // adressShowLabel
-            // 
-            this.adressShowLabel.AutoSize = true;
-            this.adressShowLabel.Location = new System.Drawing.Point(302, 82);
-            this.adressShowLabel.Name = "adressShowLabel";
-            this.adressShowLabel.Size = new System.Drawing.Size(91, 13);
-            this.adressShowLabel.TabIndex = 8;
-            this.adressShowLabel.Text = "adressShowLabel";
-            // 
             // nameShowLabel
             // 
             this.nameShowLabel.AutoSize = true;
-            this.nameShowLabel.Location = new System.Drawing.Point(210, 39);
+            this.nameShowLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.nameShowLabel.Location = new System.Drawing.Point(209, 34);
             this.nameShowLabel.Name = "nameShowLabel";
-            this.nameShowLabel.Size = new System.Drawing.Size(86, 13);
+            this.nameShowLabel.Size = new System.Drawing.Size(128, 20);
             this.nameShowLabel.TabIndex = 7;
             this.nameShowLabel.Text = "nameShowLabel";
             // 
@@ -136,16 +124,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
-            // 
-            // adressLabel
-            // 
-            this.adressLabel.AutoSize = true;
-            this.adressLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.adressLabel.Location = new System.Drawing.Point(159, 77);
-            this.adressLabel.Name = "adressLabel";
-            this.adressLabel.Size = new System.Drawing.Size(137, 20);
-            this.adressLabel.TabIndex = 1;
-            this.adressLabel.Text = "Адрес доставки:";
             // 
             // nameLabel
             // 
@@ -167,6 +145,7 @@
             this.cCloseLabel.Size = new System.Drawing.Size(15, 16);
             this.cCloseLabel.TabIndex = 12;
             this.cCloseLabel.Text = "X";
+            this.cCloseLabel.Click += new System.EventHandler(this.cCloseLabel_Click);
             // 
             // PersonalAccountForm
             // 
@@ -179,6 +158,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "PersonalAccountForm";
             this.Text = "PersonalAccountForm";
+            this.Load += new System.EventHandler(this.PersonalAccountForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -191,10 +171,8 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label nameLabel;
-        private System.Windows.Forms.Label adressShowLabel;
         private System.Windows.Forms.Label nameShowLabel;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label adressLabel;
         private System.Windows.Forms.Button toCatButton;
         private System.Windows.Forms.Button toRecButton;
         private System.Windows.Forms.Button toFavButton;

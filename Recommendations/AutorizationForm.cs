@@ -59,7 +59,9 @@ namespace Recommendations
             if (table.Rows.Count == 1)
             {
                 this.Hide();
-                RecommendationsForm recommendations = new RecommendationsForm();
+                RecommendationsForm recommendations = new RecommendationsForm(loginUser);
+                PersonalAccountForm personalAccount = new PersonalAccountForm(loginUser);
+                
                 recommendations.Show();
             }
             else
@@ -117,5 +119,21 @@ namespace Recommendations
 
             
         }
+        Point lastPoint;
+        private void AutorizationForm_MouseMove(object sender, MouseEventArgs e)
+        {
+            if(e.Button == MouseButtons.Left) 
+            {
+                this.Left += e.X - lastPoint.X;
+                this.Top += e.Y - lastPoint.Y;
+            }
+        }
+
+        private void AutorizationForm_MouseDown(object sender, MouseEventArgs e)
+        {
+            lastPoint = new Point(e.X, e.Y);
+        }
+
+        
     }
 }

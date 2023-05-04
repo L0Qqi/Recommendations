@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,15 +14,19 @@ namespace Recommendations
 {
     public partial class RecommendationsForm : Form
     {
-        public RecommendationsForm()
+        private string Login;
+        private SqlConnection sqlConnection = null;
+        public RecommendationsForm(string login)
         {
             InitializeComponent();
+
+            Login = login;
         }
 
         private void label2_Click(object sender, EventArgs e)
         {
             this.Hide();
-            PersonalAccountForm account = new PersonalAccountForm();
+            PersonalAccountForm account = new PersonalAccountForm(Login);
             account.Show(); 
 
         }
@@ -54,6 +60,41 @@ namespace Recommendations
             this.Hide();
             CategoriesForm categories = new CategoriesForm();
             categories.Show();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+        Point lastPoint;
+        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                this.Left += e.X - lastPoint.X;
+                this.Top += e.Y - lastPoint.Y;
+            }
+        }
+
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            lastPoint = new Point(e.X, e.Y);
+        }
+
+        private void cCloseLabel_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void RecommendationsForm_Load(object sender, EventArgs e)
+        {
+            sqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["Users"].ConnectionString);
+            sqlConnection.Open();
+            SqlDataAdapter dataAdapter = new SqlDataAdapter(
+                "SELECT * FROM Products", sqlConnection);
+            DataSet dataSet = new DataSet();
+            dataAdapter.Fill(dataSet);
+            recDataGV.DataSource = dataSet.Tables[0];
         }
     }
 }

@@ -15,6 +15,7 @@ namespace Recommendations
     public partial class FavouritesForm : Form
     {
         private SqlConnection sqlConnection = null;
+        private string Login;
         public FavouritesForm()
         {
             InitializeComponent();
@@ -23,7 +24,7 @@ namespace Recommendations
         private void fromFavReturnLabel_Click(object sender, EventArgs e)
         {
             this.Hide();
-            RecommendationsForm recommendations = new RecommendationsForm();
+            RecommendationsForm recommendations = new RecommendationsForm(Login);
             recommendations.Show();
         }
 
@@ -38,9 +39,9 @@ namespace Recommendations
             favDataGV.DataSource = dataSet.Tables[0];
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void cCloseLabel_Click(object sender, EventArgs e)
         {
-
+            Application.Exit();
         }
     }
 }

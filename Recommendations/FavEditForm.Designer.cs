@@ -63,6 +63,7 @@
             this.cCloseLabel.Size = new System.Drawing.Size(15, 16);
             this.cCloseLabel.TabIndex = 16;
             this.cCloseLabel.Text = "X";
+            this.cCloseLabel.Click += new System.EventHandler(this.cCloseLabel_Click);
             // 
             // FavEditForm
             // 
