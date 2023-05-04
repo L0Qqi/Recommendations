@@ -115,6 +115,8 @@ namespace Recommendations
         {
             sqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["Users"].ConnectionString);
             sqlConnection.Open();
+
+
         }
     }
 }
