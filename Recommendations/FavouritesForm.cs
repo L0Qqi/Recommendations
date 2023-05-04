@@ -44,4 +44,6 @@ namespace Recommendations
             Application.Exit();
         }
     }
+
+    //БГБ//
 }

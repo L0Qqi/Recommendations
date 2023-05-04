@@ -18,6 +18,7 @@ namespace Recommendations
         public AutorizationForm()
         {
             InitializeComponent();
+            StartPosition = FormStartPosition.CenterScreen;
 
             loginTB.Text = "Логин";
             loginTB.ForeColor = Color.Gray;
@@ -44,7 +45,7 @@ namespace Recommendations
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+
             var loginUser = loginTB.Text;
             var passwordUser = passwordTB.Text;
             SqlDataAdapter adapter = new SqlDataAdapter();
@@ -119,21 +120,5 @@ namespace Recommendations
 
             
         }
-        Point lastPoint;
-        private void AutorizationForm_MouseMove(object sender, MouseEventArgs e)
-        {
-            if(e.Button == MouseButtons.Left) 
-            {
-                this.Left += e.X - lastPoint.X;
-                this.Top += e.Y - lastPoint.Y;
-            }
-        }
-
-        private void AutorizationForm_MouseDown(object sender, MouseEventArgs e)
-        {
-            lastPoint = new Point(e.X, e.Y);
-        }
-
-        
     }
 }
