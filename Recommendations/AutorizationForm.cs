@@ -45,7 +45,7 @@ namespace Recommendations
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+
             var loginUser = loginTB.Text;
             var passwordUser = passwordTB.Text;
             SqlDataAdapter adapter = new SqlDataAdapter();
@@ -116,9 +116,9 @@ namespace Recommendations
             sqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["Users"].ConnectionString);
             sqlConnection.Open();
 
-            
+
         }
 
-       
+       //моресолнце
     }
 }
