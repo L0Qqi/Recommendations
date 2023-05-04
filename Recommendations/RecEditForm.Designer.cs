@@ -75,7 +75,7 @@
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "RecEditForm";
-            this.Text = "RecEditForm";
+            this.Text = "S";
             this.ResumeLayout(false);
             this.PerformLayout();
 

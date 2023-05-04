@@ -18,6 +18,7 @@ namespace Recommendations
         public AutorizationForm()
         {
             InitializeComponent();
+            StartPosition = FormStartPosition.CenterScreen;
 
             loginTB.Text = "Логин";
             loginTB.ForeColor = Color.Gray;
@@ -117,5 +118,7 @@ namespace Recommendations
 
             
         }
+
+       
     }
 }

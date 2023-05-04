@@ -130,7 +130,7 @@
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FavouritesForm";
-            this.Text = "FavouritesForm";
+            this.Text = "Ы";
             this.Load += new System.EventHandler(this.FavouritesForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

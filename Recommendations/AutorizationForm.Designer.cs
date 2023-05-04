@@ -117,6 +117,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(475, 81);
             this.panel1.TabIndex = 6;
+            
             // 
             // cCloseLabel
             // 
