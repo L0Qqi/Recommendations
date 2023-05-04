@@ -44,24 +44,28 @@ namespace Recommendations
 
         private void button1_Click(object sender, EventArgs e)
         {
-            SqlDataAdapter adapter = new SqlDataAdapter($"SELECT * FROM `Users` WHERE `Login` = {loginTB.Text} AND `Password`= {passwordTB.Text}",
-                sqlConnection);
+            
+            var loginUser = loginTB.Text;
+            var passwordUser = passwordTB.Text;
+            SqlDataAdapter adapter = new SqlDataAdapter();
             DataTable table = new DataTable();
 
-            
-            //adapter.SelectCommand = command;
-            //adapter.Fill(table);
+            string querystring = $"SELECT Login, Password from Users WHERE Login = '{loginUser}' and Password = '{passwordUser}'";
 
-            //if (table.Rows.Count > 0)
-            //{
+            SqlCommand command = new SqlCommand(querystring, sqlConnection);
+            adapter.SelectCommand = command;
+            adapter.Fill(table);
+
+            if (table.Rows.Count == 1)
+            {
                 this.Hide();
                 RecommendationsForm recommendations = new RecommendationsForm();
                 recommendations.Show();
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Учетная запись не найдена ");
-            //}
+            }
+            else
+            {
+                MessageBox.Show("Учетная запись не найдена ");
+            }
         }
 
         private void loginTB_Enter(object sender, EventArgs e)

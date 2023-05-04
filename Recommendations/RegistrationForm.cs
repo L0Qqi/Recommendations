@@ -157,7 +157,7 @@ namespace Recommendations
                 MessageBox.Show("Введите номер телефона");
                 return;
             }
-            if (bdDateTB.Text == "")
+            if (bdDateTB.Text == "" && bdDateTB.Text == "Дата рождения")
             {
                 MessageBox.Show("Введите дату рождения в формате MM.DD.YYYY");
                 return;

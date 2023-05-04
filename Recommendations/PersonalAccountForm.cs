@@ -34,5 +34,26 @@ namespace Recommendations
             SettingsForm settings = new SettingsForm();
             settings.Show();
         }
+
+        private void toCatButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            CategoriesForm categories = new CategoriesForm();
+            categories.Show();
+        }
+
+        private void toRecButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            RecommendationsForm rec = new RecommendationsForm();
+            rec.Show();
+        }
+
+        private void toFavButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FavouritesForm favourites = new FavouritesForm();
+            favourites.Show();
+        }
     }
 }

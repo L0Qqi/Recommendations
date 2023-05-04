@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.toCatButton = new System.Windows.Forms.Button();
+            this.toRecButton = new System.Windows.Forms.Button();
+            this.toFavButton = new System.Windows.Forms.Button();
+            this.recSettingsButton = new System.Windows.Forms.Button();
             this.adressShowLabel = new System.Windows.Forms.Label();
             this.nameShowLabel = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.adressLabel = new System.Windows.Forms.Label();
             this.nameLabel = new System.Windows.Forms.Label();
-            this.recSettingsButton = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.cCloseLabel = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -46,9 +46,9 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(144)))), ((int)(((byte)(126)))));
-            this.panel1.Controls.Add(this.button3);
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.button4);
+            this.panel1.Controls.Add(this.toCatButton);
+            this.panel1.Controls.Add(this.toRecButton);
+            this.panel1.Controls.Add(this.toFavButton);
             this.panel1.Controls.Add(this.recSettingsButton);
             this.panel1.Controls.Add(this.adressShowLabel);
             this.panel1.Controls.Add(this.nameShowLabel);
@@ -59,6 +59,54 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(421, 307);
             this.panel1.TabIndex = 0;
+            // 
+            // toCatButton
+            // 
+            this.toCatButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(93)))), ((int)(((byte)(80)))));
+            this.toCatButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(222)))), ((int)(((byte)(186)))));
+            this.toCatButton.Location = new System.Drawing.Point(15, 233);
+            this.toCatButton.Name = "toCatButton";
+            this.toCatButton.Size = new System.Drawing.Size(158, 43);
+            this.toCatButton.TabIndex = 13;
+            this.toCatButton.Text = "Категории";
+            this.toCatButton.UseVisualStyleBackColor = false;
+            this.toCatButton.Click += new System.EventHandler(this.toCatButton_Click);
+            // 
+            // toRecButton
+            // 
+            this.toRecButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(93)))), ((int)(((byte)(80)))));
+            this.toRecButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(222)))), ((int)(((byte)(186)))));
+            this.toRecButton.Location = new System.Drawing.Point(235, 233);
+            this.toRecButton.Name = "toRecButton";
+            this.toRecButton.Size = new System.Drawing.Size(158, 43);
+            this.toRecButton.TabIndex = 12;
+            this.toRecButton.Text = "Список рекомендаций";
+            this.toRecButton.UseVisualStyleBackColor = false;
+            this.toRecButton.Click += new System.EventHandler(this.toRecButton_Click);
+            // 
+            // toFavButton
+            // 
+            this.toFavButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(93)))), ((int)(((byte)(80)))));
+            this.toFavButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(222)))), ((int)(((byte)(186)))));
+            this.toFavButton.Location = new System.Drawing.Point(235, 160);
+            this.toFavButton.Name = "toFavButton";
+            this.toFavButton.Size = new System.Drawing.Size(158, 43);
+            this.toFavButton.TabIndex = 11;
+            this.toFavButton.Text = "Избранные";
+            this.toFavButton.UseVisualStyleBackColor = false;
+            this.toFavButton.Click += new System.EventHandler(this.toFavButton_Click);
+            // 
+            // recSettingsButton
+            // 
+            this.recSettingsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(93)))), ((int)(((byte)(80)))));
+            this.recSettingsButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(222)))), ((int)(((byte)(186)))));
+            this.recSettingsButton.Location = new System.Drawing.Point(15, 160);
+            this.recSettingsButton.Name = "recSettingsButton";
+            this.recSettingsButton.Size = new System.Drawing.Size(158, 43);
+            this.recSettingsButton.TabIndex = 10;
+            this.recSettingsButton.Text = "Настройки списка рекомендаций";
+            this.recSettingsButton.UseVisualStyleBackColor = false;
+            this.recSettingsButton.Click += new System.EventHandler(this.recSettingsButton_Click);
             // 
             // adressShowLabel
             // 
@@ -77,6 +125,17 @@
             this.nameShowLabel.Size = new System.Drawing.Size(86, 13);
             this.nameShowLabel.TabIndex = 7;
             this.nameShowLabel.Text = "nameShowLabel";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(222)))), ((int)(((byte)(186)))));
+            this.pictureBox1.Image = global::Recommendations.Properties.Resources.user_proj;
+            this.pictureBox1.Location = new System.Drawing.Point(15, 26);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(97, 95);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
             // 
             // adressLabel
             // 
@@ -98,51 +157,6 @@
             this.nameLabel.TabIndex = 0;
             this.nameLabel.Text = "Имя:";
             // 
-            // recSettingsButton
-            // 
-            this.recSettingsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(93)))), ((int)(((byte)(80)))));
-            this.recSettingsButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(222)))), ((int)(((byte)(186)))));
-            this.recSettingsButton.Location = new System.Drawing.Point(15, 160);
-            this.recSettingsButton.Name = "recSettingsButton";
-            this.recSettingsButton.Size = new System.Drawing.Size(158, 43);
-            this.recSettingsButton.TabIndex = 10;
-            this.recSettingsButton.Text = "Настройки списка рекомендаций";
-            this.recSettingsButton.UseVisualStyleBackColor = false;
-            this.recSettingsButton.Click += new System.EventHandler(this.recSettingsButton_Click);
-            // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(93)))), ((int)(((byte)(80)))));
-            this.button4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(222)))), ((int)(((byte)(186)))));
-            this.button4.Location = new System.Drawing.Point(235, 160);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(158, 43);
-            this.button4.TabIndex = 11;
-            this.button4.Text = "Избранные";
-            this.button4.UseVisualStyleBackColor = false;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(93)))), ((int)(((byte)(80)))));
-            this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(222)))), ((int)(((byte)(186)))));
-            this.button2.Location = new System.Drawing.Point(235, 233);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(158, 43);
-            this.button2.TabIndex = 12;
-            this.button2.Text = "Список рекомендаций";
-            this.button2.UseVisualStyleBackColor = false;
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(93)))), ((int)(((byte)(80)))));
-            this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(222)))), ((int)(((byte)(186)))));
-            this.button3.Location = new System.Drawing.Point(15, 233);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(158, 43);
-            this.button3.TabIndex = 13;
-            this.button3.Text = "Категории";
-            this.button3.UseVisualStyleBackColor = false;
-            // 
             // cCloseLabel
             // 
             this.cCloseLabel.AutoSize = true;
@@ -153,17 +167,6 @@
             this.cCloseLabel.Size = new System.Drawing.Size(15, 16);
             this.cCloseLabel.TabIndex = 12;
             this.cCloseLabel.Text = "X";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(222)))), ((int)(((byte)(186)))));
-            this.pictureBox1.Image = global::Recommendations.Properties.Resources.user_proj;
-            this.pictureBox1.Location = new System.Drawing.Point(15, 26);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(97, 95);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
             // 
             // PersonalAccountForm
             // 
@@ -192,9 +195,9 @@
         private System.Windows.Forms.Label nameShowLabel;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label adressLabel;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button toCatButton;
+        private System.Windows.Forms.Button toRecButton;
+        private System.Windows.Forms.Button toFavButton;
         private System.Windows.Forms.Button recSettingsButton;
         private System.Windows.Forms.Label cCloseLabel;
     }
