@@ -119,6 +119,6 @@ namespace Recommendations
 
         }
 
-       //моресолнце
+       //моресолнце//
     }
 }
