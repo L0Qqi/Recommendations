@@ -159,6 +159,8 @@
             this.Name = "PersonalAccountForm";
             this.Text = "PersonalAccountForm";
             this.Load += new System.EventHandler(this.PersonalAccountForm_Load);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PersonalAccountForm_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PersonalAccountForm_MouseMove);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

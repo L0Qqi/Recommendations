@@ -50,7 +50,22 @@ namespace Recommendations
             FavEditForm fav = new FavEditForm();
             fav.Show();
         }
+        Point lastPoint;
+
+        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                this.Left += e.X - lastPoint.X;
+                this.Top += e.Y - lastPoint.Y;
+            }
+        }
+
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            lastPoint = new Point(e.X, e.Y);
+        }
     }
 
-    //БГБ//
+    
 }

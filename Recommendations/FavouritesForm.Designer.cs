@@ -50,6 +50,8 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(638, 65);
             this.panel1.TabIndex = 0;
+            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
+            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
             // 
             // cCloseLabel
             // 
