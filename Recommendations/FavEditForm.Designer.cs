@@ -77,6 +77,9 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FavEditForm";
             this.Text = "FavEditForm";
+         
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FavEditForm_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.FavEditForm_MouseMove);
             this.ResumeLayout(false);
             this.PerformLayout();
 

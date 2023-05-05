@@ -9,12 +9,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Configuration;
 using System.Data.SqlClient;
+using NLog;
 
 namespace Recommendations
 {
     public partial class AutorizationForm : Form
     {
         private SqlConnection sqlConnection = null;
+        private static Logger logger = LogManager.GetCurrentClassLogger();
         public AutorizationForm()
         {
             InitializeComponent();
@@ -62,12 +64,15 @@ namespace Recommendations
                 this.Hide();
                 RecommendationsForm recommendations = new RecommendationsForm(loginUser);
                 PersonalAccountForm personalAccount = new PersonalAccountForm(loginUser);
-                
+
                 recommendations.Show();
+                logger.Info("Успешно выполнен вход в аккаунт");
+                
             }
             else
             {
                 MessageBox.Show("Учетная запись не найдена ");
+                logger.Error("Таких данных нет в базе данных, либо введены неверные данные");
             }
         }
 
@@ -110,15 +115,37 @@ namespace Recommendations
 
         private void cCloseLabel_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
         }
 
         private void AutorizationForm_Load(object sender, EventArgs e)
         {
             sqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["Users"].ConnectionString);
-            sqlConnection.Open();
+            try
+            {
+                sqlConnection.Open();
+                logger.Info("Подключение к базе данных выполнено успешно");
 
+            }
+            catch (Exception ex)
+            {
+                logger.Error("Ошибка подключения к базе данных " + ex);
+            }
             
+        }
+        Point lastPoint;
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            lastPoint = new Point(e.X, e.Y);
+        }
+
+        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                this.Left += e.X - lastPoint.X;
+                this.Top += e.Y - lastPoint.Y;
+            }
         }
     }
 }

@@ -76,6 +76,8 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "RecEditForm";
             this.Text = "S";
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.RecEditForm_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.RecEditForm_MouseMove);
             this.ResumeLayout(false);
             this.PerformLayout();
 

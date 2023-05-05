@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NLog;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
@@ -16,6 +17,7 @@ namespace Recommendations
     {
         private string Login;
         private SqlConnection sqlConnection = null;
+        private static Logger logger = LogManager.GetCurrentClassLogger();
         public RecommendationsForm(string login)
         {
             InitializeComponent();
@@ -88,13 +90,38 @@ namespace Recommendations
 
         private void RecommendationsForm_Load(object sender, EventArgs e)
         {
+            
             sqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["Users"].ConnectionString);
-            sqlConnection.Open();
-            SqlDataAdapter dataAdapter = new SqlDataAdapter(
-                "SELECT * FROM Products", sqlConnection);
-            DataSet dataSet = new DataSet();
-            dataAdapter.Fill(dataSet);
-            recDataGV.DataSource = dataSet.Tables[0];
+            try
+            {
+                sqlConnection.Open();
+                SqlCommand command = new SqlCommand($"SELECT Id from Users WHERE Login = '{Login}'", sqlConnection);
+
+                object result = command.ExecuteScalar();
+
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(
+                    $"SELECT Products.Name, Categories.Name as Category, Favorites.User_id FROM Categories " +
+                    $"JOIN Products ON Products.Category_Id = Categories.Id " +
+                    $"JOIN Favorites ON Favorites.User_id = {result} AND Categories.Id = Categories_id",
+                    sqlConnection);
+                DataSet dataSet = new DataSet();
+                dataAdapter.Fill(dataSet);
+                recDGV.DataSource = dataSet.Tables[0];
+
+                sqlConnection.Close();
+                logger.Info("Данные извлечены успешно");
+            }
+            catch (Exception ex) 
+            {
+                MessageBox.Show(ex.Message);
+                logger.Error("Проблемы с подключением к базе данных: " + ex.Message);
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            RecEditForm recEditForm = new RecEditForm();
+            recEditForm.ShowDialog();
         }
     }
 }

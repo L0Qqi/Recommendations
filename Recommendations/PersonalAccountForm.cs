@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NLog;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
@@ -14,6 +15,7 @@ namespace Recommendations
 {
     public partial class PersonalAccountForm : Form
     {
+        private static Logger logger = LogManager.GetCurrentClassLogger(); 
         private SqlConnection sqlConnection = null;
         private string Login;
         public PersonalAccountForm(string login)
@@ -65,19 +67,26 @@ namespace Recommendations
         {
             
             sqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["Users"].ConnectionString);
-            sqlConnection.Open();
-            SqlCommand command = new SqlCommand($"SELECT Name from Users WHERE Login = '{Login}'", sqlConnection);
-            SqlDataReader reader = command.ExecuteReader();
-
-            while (reader.Read())
+            try
             {
-                nameShowLabel.Text = reader["Name"].ToString();
-                
+                sqlConnection.Open();
+                SqlCommand command = new SqlCommand($"SELECT Name from Users WHERE Login = '{Login}'", sqlConnection);
+                SqlDataReader reader = command.ExecuteReader();
 
+                while (reader.Read())
+                {
+                    nameShowLabel.Text = reader["Name"].ToString();
+
+
+                }
+                reader.Close();
+                sqlConnection.Close();
+                logger.Info("Имя успешно взято из базы данных");
             }
-            reader.Close();
-            sqlConnection.Close();
-
+            catch (Exception ex)  
+            {
+                logger.Error("Ошибка с подключением к базе данных :" + ex);
+            }
         }
 
         private void cCloseLabel_Click(object sender, EventArgs e)
