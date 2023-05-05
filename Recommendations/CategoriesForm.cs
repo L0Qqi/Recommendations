@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NLog;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
@@ -14,6 +15,7 @@ namespace Recommendations
 {
     public partial class CategoriesForm : Form
     {
+        private static Logger logger = LogManager.GetCurrentClassLogger();
         private SqlConnection sqlConnection = null;
         private string Login;
         public CategoriesForm()
@@ -41,12 +43,21 @@ namespace Recommendations
         private void CategoriesForm_Load(object sender, EventArgs e)
         {
             sqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["Users"].ConnectionString);
-            sqlConnection.Open();
-            SqlDataAdapter dataAdapter = new SqlDataAdapter(
-                "SELECT * FROM Products", sqlConnection);
-            DataSet dataSet = new DataSet();
-            dataAdapter.Fill(dataSet);
-            catDataGV.DataSource = dataSet.Tables[0];
+            try
+            {
+                sqlConnection.Open();
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(
+                    "SELECT * FROM Products", sqlConnection);
+                DataSet dataSet = new DataSet();
+                dataAdapter.Fill(dataSet);
+                catDataGV.DataSource = dataSet.Tables[0];
+                logger.Info("Подключение к базе данных произошло успешно");
+            }
+            catch (Exception ex) 
+            {
+                MessageBox.Show(ex.Message);
+                logger.Error("Проблемы с подключением к базе данных: " + ex.Message);
+            }
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
@@ -97,6 +108,7 @@ namespace Recommendations
             dataAdapter.Fill(dataSet);
             catDataGV.DataSource = dataSet.Tables[0];
         }
+
         Point lastPoint;
        
         private void panel1_MouseDown(object sender, MouseEventArgs e)
@@ -106,8 +118,11 @@ namespace Recommendations
 
         private void panel1_MouseMove(object sender, MouseEventArgs e)
         {
-            this.Left += e.X - lastPoint.X;
-            this.Top += e.Y - lastPoint.Y;
+            if (e.Button == MouseButtons.Left)
+            {
+                this.Left += e.X - lastPoint.X;
+                this.Top += e.Y - lastPoint.Y;
+            }
         }
     }
 }

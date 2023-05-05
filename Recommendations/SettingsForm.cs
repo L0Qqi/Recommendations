@@ -21,5 +21,10 @@ namespace Recommendations
         {
             this.Close();
         }
+
+        private void acceptButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NLog;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
@@ -16,6 +17,7 @@ namespace Recommendations
     public partial class RegistrationForm : Form
     {
         private SqlConnection sqlConnection = null;
+        private static Logger logger = LogManager.GetCurrentClassLogger();
         public RegistrationForm()
         {
             InitializeComponent();
@@ -194,7 +196,17 @@ namespace Recommendations
         private void RegistrationForm_Load(object sender, EventArgs e)
         {
             sqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["Users"].ConnectionString);
-            sqlConnection.Open();
+            try
+            {
+                sqlConnection.Open();
+                logger.Info("Аккаунт успешно зарегистрирован");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                logger.Error("Ошибка" + ex);
+                
+            }   
         }
         Point lastPoint;
         private void RegistrationForm_MouseMove(object sender, MouseEventArgs e)

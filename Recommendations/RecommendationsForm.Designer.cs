@@ -38,7 +38,6 @@
             this.toCategorLabel = new System.Windows.Forms.Label();
             this.toFavLabel = new System.Windows.Forms.Label();
             this.recDGV = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -117,6 +116,7 @@
             this.button2.TabIndex = 7;
             this.button2.Text = "Редактировать";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // splitContainer1
             // 
@@ -131,7 +131,6 @@
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.label1);
             this.splitContainer1.Panel2.Controls.Add(this.toCategorLabel);
             this.splitContainer1.Panel2.Controls.Add(this.toFavLabel);
             this.splitContainer1.Panel2.Controls.Add(this.lKLabel);
@@ -174,15 +173,6 @@
             this.recDGV.Size = new System.Drawing.Size(433, 329);
             this.recDGV.TabIndex = 0;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(44, 167);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "label1";
-            // 
             // RecommendationsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -220,6 +210,5 @@
         private System.Windows.Forms.Label toFavLabel;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.DataGridView recDGV;
-        private System.Windows.Forms.Label label1;
     }
 }

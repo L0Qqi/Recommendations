@@ -30,18 +30,25 @@ namespace Recommendations
 
         private void FavouritesForm_Load(object sender, EventArgs e)
         {
-            sqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["Users"].ConnectionString);
-            sqlConnection.Open();
-            SqlDataAdapter dataAdapter = new SqlDataAdapter(
-                "SELECT * FROM Products WHERE Favourites = 1", sqlConnection);
-            DataSet dataSet = new DataSet();
-            dataAdapter.Fill(dataSet);
-            favDataGV.DataSource = dataSet.Tables[0];
+            //sqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["Users"].ConnectionString);
+            //sqlConnection.Open();
+            //SqlDataAdapter dataAdapter = new SqlDataAdapter(
+            //    "SELECT * FROM Products WHERE Favourites = 1", sqlConnection);
+            //DataSet dataSet = new DataSet();
+            //dataAdapter.Fill(dataSet);
+            //favDataGV.DataSource = dataSet.Tables[0];
         }
 
         private void cCloseLabel_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            
+            FavEditForm fav = new FavEditForm();
+            fav.Show();
         }
     }
 
