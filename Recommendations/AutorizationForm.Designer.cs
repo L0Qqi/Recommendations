@@ -158,8 +158,7 @@
             this.Name = "AutorizationForm";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.AutorizationForm_Load);
-            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.AutorizationForm_MouseDown);
-            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.AutorizationForm_MouseMove);
+            
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

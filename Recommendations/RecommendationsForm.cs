@@ -88,13 +88,28 @@ namespace Recommendations
 
         private void RecommendationsForm_Load(object sender, EventArgs e)
         {
+            //sqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["Users"].ConnectionString);
+            //sqlConnection.Open();
+            //SqlDataAdapter dataAdapter = new SqlDataAdapter(
+            //    "SELECT * FROM Products", sqlConnection);
+            //DataSet dataSet = new DataSet();
+            //dataAdapter.Fill(dataSet);
+            //recDGV.DataSource = dataSet.Tables[0];
             sqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["Users"].ConnectionString);
             sqlConnection.Open();
+            SqlCommand command = new SqlCommand($"SELECT Id from Users WHERE Login = '{Login}'", sqlConnection);
+            //SqlDataReader reader = command.ExecuteReader();
+            object result = command.ExecuteScalar();
+
             SqlDataAdapter dataAdapter = new SqlDataAdapter(
                 "SELECT * FROM Products", sqlConnection);
             DataSet dataSet = new DataSet();
             dataAdapter.Fill(dataSet);
-            recDataGV.DataSource = dataSet.Tables[0];
+            recDGV.DataSource = dataSet.Tables[0];
+
+            //label1.Text = result.ToString();
+            //reader.Close();
+            sqlConnection.Close();
         }
     }
 }
