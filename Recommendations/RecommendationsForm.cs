@@ -53,14 +53,14 @@ namespace Recommendations
         private void label1_Click(object sender, EventArgs e)
         {
             this.Hide();
-            FavouritesForm favourites = new FavouritesForm();
+            FavouritesForm favourites = new FavouritesForm(Login);
             favourites.Show();
         }
 
         private void toCategorLabel_Click(object sender, EventArgs e)
         {
             this.Hide();
-            CategoriesForm categories = new CategoriesForm();
+            CategoriesForm categories = new CategoriesForm(Login);
             categories.Show();
         }
 
@@ -104,7 +104,7 @@ namespace Recommendations
                     $"JOIN Products ON Products.Category_Id = Categories.Id " +
                     $"JOIN Favorites ON Favorites.User_id = {result} AND Categories.Id = Categories_id",
                     sqlConnection);
-                DataSet dataSet = new DataSet();
+                DataSet dataSet = new DataSet(Login);
                 dataAdapter.Fill(dataSet);
                 recDGV.DataSource = dataSet.Tables[0];
 

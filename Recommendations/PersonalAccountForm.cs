@@ -38,14 +38,14 @@ namespace Recommendations
         private void recSettingsButton_Click(object sender, EventArgs e)
         {
             
-            SettingsForm settings = new SettingsForm();
+            SettingsForm settings = new SettingsForm(Login);
             settings.Show();
         }
 
         private void toCatButton_Click(object sender, EventArgs e)
         {
             this.Hide();
-            CategoriesForm categories = new CategoriesForm();
+            CategoriesForm categories = new CategoriesForm(Login);
             categories.Show();
         }
 
@@ -59,7 +59,7 @@ namespace Recommendations
         private void toFavButton_Click(object sender, EventArgs e)
         {
             this.Hide();
-            FavouritesForm favourites = new FavouritesForm();
+            FavouritesForm favourites = new FavouritesForm(Login);
             favourites.Show();
         }
 

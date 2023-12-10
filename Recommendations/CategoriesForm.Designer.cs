@@ -35,6 +35,7 @@
             this.fromCatReturnLabel = new System.Windows.Forms.Label();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.catDataGV = new System.Windows.Forms.DataGridView();
+            this.button1 = new System.Windows.Forms.Button();
             this.allRB = new System.Windows.Forms.RadioButton();
             this.gameRB = new System.Windows.Forms.RadioButton();
             this.tVRB = new System.Windows.Forms.RadioButton();
@@ -44,6 +45,7 @@
             this.houseRB = new System.Windows.Forms.RadioButton();
             this.kitchenRB = new System.Windows.Forms.RadioButton();
             this.beautiRB = new System.Windows.Forms.RadioButton();
+            this.deleteBut = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -125,6 +127,8 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.deleteBut);
+            this.splitContainer1.Panel2.Controls.Add(this.button1);
             this.splitContainer1.Panel2.Controls.Add(this.allRB);
             this.splitContainer1.Panel2.Controls.Add(this.gameRB);
             this.splitContainer1.Panel2.Controls.Add(this.tVRB);
@@ -148,6 +152,17 @@
             this.catDataGV.Name = "catDataGV";
             this.catDataGV.Size = new System.Drawing.Size(419, 331);
             this.catDataGV.TabIndex = 0;
+            this.catDataGV.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.catDataGV_CellClick);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(8, 269);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(156, 23);
+            this.button1.TabIndex = 11;
+            this.button1.Text = "Добавить предмет";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // allRB
             // 
@@ -257,6 +272,16 @@
             this.beautiRB.UseVisualStyleBackColor = true;
             this.beautiRB.CheckedChanged += new System.EventHandler(this.beautiRB_CheckedChanged);
             // 
+            // deleteBut
+            // 
+            this.deleteBut.Location = new System.Drawing.Point(8, 299);
+            this.deleteBut.Name = "deleteBut";
+            this.deleteBut.Size = new System.Drawing.Size(156, 23);
+            this.deleteBut.TabIndex = 12;
+            this.deleteBut.Text = "Удалить элемент";
+            this.deleteBut.UseVisualStyleBackColor = true;
+            this.deleteBut.Click += new System.EventHandler(this.deleteBut_Click);
+            // 
             // CategoriesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -270,7 +295,6 @@
             this.Name = "CategoriesForm";
             this.Text = "CategoriesForm";
             this.Load += new System.EventHandler(this.CategoriesForm_Load);
-            
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -303,5 +327,7 @@
         private System.Windows.Forms.Label fromCatReturnLabel;
         private System.Windows.Forms.DataGridView catDataGV;
         private System.Windows.Forms.RadioButton allRB;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button deleteBut;
     }
 }

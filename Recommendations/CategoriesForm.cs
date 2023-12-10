@@ -18,9 +18,11 @@ namespace Recommendations
         private static Logger logger = LogManager.GetCurrentClassLogger();
         private SqlConnection sqlConnection = null;
         private string Login;
-        public CategoriesForm()
+        private DataGridViewRow selectedRow;
+        public CategoriesForm(string login)
         {
             InitializeComponent();
+            Login = login;
         }
 
         private void cCloseLabel_Click(object sender, EventArgs e)
@@ -53,7 +55,7 @@ namespace Recommendations
                 catDataGV.DataSource = dataSet.Tables[0];
                 logger.Info("Подключение к базе данных произошло успешно");
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
                 logger.Error("Проблемы с подключением к базе данных: " + ex.Message);
@@ -62,7 +64,7 @@ namespace Recommendations
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
-            (catDataGV.DataSource as DataTable).DefaultView.RowFilter = $"Category_Id = 1"; 
+            (catDataGV.DataSource as DataTable).DefaultView.RowFilter = $"Category_Id = 1";
         }
 
         private void houseRB_CheckedChanged(object sender, EventArgs e)
@@ -110,7 +112,7 @@ namespace Recommendations
         }
 
         Point lastPoint;
-       
+
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
             lastPoint = new Point(e.X, e.Y);
@@ -123,6 +125,58 @@ namespace Recommendations
                 this.Left += e.X - lastPoint.X;
                 this.Top += e.Y - lastPoint.Y;
             }
+        }
+
+        private void AddTB_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            AddForm addopen = new AddForm(Login);
+            addopen.Show();
+        }
+
+        private void catDataGV_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                // Сохраните выбранный элемент
+                selectedRow = catDataGV.Rows[e.RowIndex];
+            }
+        }
+
+        private void deleteBut_Click(object sender, EventArgs e)
+        {
+            if (selectedRow != null)
+            {
+                // Получите идентификатор выбранной строки, например, из столбца с индексом 0
+                int id = Convert.ToInt32(selectedRow.Cells[0].Value);
+
+                // Удалите выбранный элемент из базы данных
+                DeleteRowFromDatabase(id);
+
+                // Удалите выбранную строку из DataGridView
+                catDataGV.Rows.Remove(selectedRow);
+
+                // Сбросьте переменную выбранной строки
+                selectedRow = null;
+            }
+        }
+        private void DeleteRowFromDatabase(int id)
+        {
+            string query = "DELETE FROM [Products] WHERE Id = @id";
+            SqlCommand command = new SqlCommand(query, sqlConnection);
+            command.Parameters.AddWithValue("@id", id);
+            command.ExecuteNonQuery();
+
+            //SqlCommand command = new SqlCommand("INSERT INTO [Products] (Id, Name, Category_Id) VALUES (@Id,@Name,@Category)",
+            //   sqlConnection);
+
+            //command.Parameters.AddWithValue("Name", ObjectTB.Text);
+
         }
     }
 }

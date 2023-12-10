@@ -16,9 +16,10 @@ namespace Recommendations
     {
         private SqlConnection sqlConnection = null;
         private string Login;
-        public FavouritesForm()
+        public FavouritesForm(string login)
         {
             InitializeComponent();
+            Login = login;
         }
 
         private void fromFavReturnLabel_Click(object sender, EventArgs e)
